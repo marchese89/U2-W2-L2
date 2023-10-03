@@ -10,6 +10,11 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <style>
+      .cursor-pointer {
+        cursor: pointer;
+      }
+    </style>
 
     <!-- Abbiamo bisogno di un sito web per un'agenzia di viaggi!
 
@@ -175,14 +180,24 @@ EXTRAS
     </header>
     <main>
       <div class="container">
-        <div class="row">
+        <div class="row mb-3">
           <h3 class="col">Saldi</h3>
           <div
             class="col d-flex flex-grow-1 justify-content-end text-info fs-6"
           >
-            Nascondi sezione
+            <span
+              data-bs-toggle="collapse"
+              data-bs-target="#saldi"
+              aria-expanded="true"
+              aria-controls="saldi"
+              class="cursor-pointer"
+              id="sld"
+              >Nascondi sezione</span
+            >
           </div>
         </div>
+      </div>
+      <div class="container collapse show" id="saldi">
         <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 mb-5">
           <div class="col mb-3">
             <div class="card border border-2 border-info">
@@ -246,8 +261,26 @@ EXTRAS
           </div>
         </div>
       </div>
-      <div class="container bg-light rounded-5">
-        <h3>Welcome Summer</h3>
+      <div class="container">
+        <div class="row mb-3">
+          <h3 class="col">Welcome Summer</h3>
+          <div
+            class="col d-flex flex-grow-1 justify-content-end text-info fs-6"
+          >
+            <span
+              data-bs-toggle="collapse"
+              data-bs-target="#welcome"
+              aria-expanded="true"
+              aria-controls="welcome"
+              class="cursor-pointer"
+              id="wel"
+              >Nascondi sezione</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="container bg-light rounded-5 collapse show" id="welcome">
+        <!-- <h3>Welcome Summer</h3> -->
         <div
           class="row g-1 row-cols-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-6 mb-5 pt-3"
         >
@@ -510,10 +543,28 @@ EXTRAS
         </p>
       </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const saldi = document.getElementById("sld");
+      const welcome = document.getElementById("wel");
+
+      saldi.addEventListener("click", function (e) {
+        if (e.target.innerText === "Nascondi sezione") {
+          e.target.innerText = "Mostra sezione";
+        }
+      });
+
+      welcome.addEventListener("click", function (e) {
+        if (e.target.innerText === "Nascondi sezione") {
+          e.target.innerText = "Mostra sezione";
+        }
+      });
+    </script>
   </body>
 </html>
